@@ -21,11 +21,9 @@ def sum_evens:
             number.append()
     sum(evens)
 
-number = 1
-
-def fib_love():
-    fibonacci = [1, 2]
-    for n in range(40):
-        if n == sum(fibonacci[-1], fibonacci[-2]):
-            fibonacci.append(n)
-    return fibonacci
+# def fib_test():
+#     fibonacci = [1, 2]
+#     for n in range(40):
+#         if n == sum(fibonacci[-1], fibonacci[-2]):
+#             fibonacci.append(n)
+#     return fibonacci
