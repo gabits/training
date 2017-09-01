@@ -37,6 +37,3 @@ def generate_longest_consecutive_string(strarr, k):
             if string in relevant_strings:
                 longest_consecutive_string += string
     return longest_consecutive_string
-
-
-print(generate_longest_consecutive_string(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 2))
