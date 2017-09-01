@@ -6,6 +6,21 @@ ref. https://brilliant.org/wiki/permutations-with-repetition/
 """
 
 
+"""
+1. Permutate all positions for string[x]
+2. Permutate all positions for string[x+1:x+n] through all of a's permutations
+3. Cumulative permutation will cover all of them including all repetitions
+4. Remove all repetitions? = Unefficient.
+5. Something is failing in the algorithm when permutating the second for the
+first ones because it's returning 4 repetitions for 4 letters!
+"""
+
+# def permutate_a(string):
+#     for string[0]:
+#
+
+####
+
 def receive(string):
     permutations_dict = {'original_string': [string, ]}            # used for the results to interate through
     for character in string:

@@ -7,16 +7,16 @@ four million, find the sum of the even-valued terms.
 """
 
 def fibonacci_to_four_million():
-    fibonacci = [1, 1]         # it starts with two ones for the first sum
+    sequency = [1, 1]         # it starts with two ones for the first sum
     while sum(fibonacci) <= 4000000:
         for number in fibonacci:
-            n = fibonacci[number - 1] + fibonacci[number]
-            n.append(fibonacci)
+            n = sequency[number - 1] + sequency[number]
+            n.append(sequency)
     return fibonacci
 
 def sum_evens:
-    fibonacci = fibonacci_to_four_million()
-    for number in fibonacci:
+    sequency = fibonacci_to_four_million()
+    for number in sequency:
         if number % 2 == 0:
             number.append()
     sum(evens)
