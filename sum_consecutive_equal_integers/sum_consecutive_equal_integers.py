@@ -25,3 +25,13 @@ Examples:
         [-10,14,12,0]
 
 """
+
+
+def sum_consecutive_integers(o_list):
+    new_list = [o_list[0]]
+    for i in range(1, len(o_list)):
+        if o_list[i] == o_list[i - 1]:
+            new_list[len(new_list) - 1] += o_list[i]
+        else:
+            new_list.append(o_list[i])
+    return new_list
