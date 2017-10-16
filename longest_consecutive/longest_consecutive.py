@@ -13,7 +13,7 @@ def generate_longest_consecutive_string(strarr, k):
     if len(strarr) != 0 and k < len(strarr) and k > 0:
         lenghts_list = []
         for index in range(len(strarr) - k):
-            count = 0
+            number = 0
             for string in strarr[index:(index + k)]:
                 count += len(string)
             lenghts_list.append(count)
