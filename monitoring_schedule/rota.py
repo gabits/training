@@ -23,52 +23,60 @@ def person_count_of_days():
         person_count_of_days[person] = 0
     return person_count_of_days
 
-week_number = 0
-
 person_count_of_days = person_count_of_days()
 
 AMOUNT_OF_DAYS_IN_WEEK_ROTATION = 2
-ROTATION_WEEKS = 5
+AMOUNT_OF_WEEKS_IN_SCHEDULE = 5
 
 rotation = []
 
 # The final output, as a list of tuples of tuples
 schedule = []
 
-def start(week_number):
-    populate_week()
-    week_number =+ 1
-    print(f'Finalise week {week_number}.')
+def start():
+    generate_weekdays_schedule()
+    # populate_weekend()
+    print('Finalised schedule:')
+    week_number = 1
+    for week_schedule in schedule:
+        print(week_number, week_schedule)
+        week_number += 1
 
-def structure_week():
-    count = 0
-    while count <= ROTATION_WEEKS:
-        schedule.append((('', '', '', '', ''), ('', '')))
-        count += 1
-    for i in schedule:
-        print(i)
+def calculate_schedule_sequence():
+    rotation_sequence_of_people = []
+    for person in PEOPLE:
+        for day in range(AMOUNT_OF_DAYS_IN_WEEK_ROTATION):
+            rotation_sequence_of_people.append(person)
+            # Index 0 refers to position of weekday.
+            # person_count_of_days[person] = person_count_of_days[person] + 1
+    # print(person_count_of_days)
+    return rotation_sequence_of_people
 
-structure_week()
+def _populate_week(schedule_sequence):
+    week_list = []
+    for i in range(5):
+        person = schedule_sequence.pop(0)
+        week_list.append(person)
 
-def _populate_schedule():
-    number = 0
-    count = 0
-    while count < 5:
-        schedule[number][0]
-    count = 0
+    schedule.append(week_list)
+
+    # TODO: Remove this; debugging purposes for now.
+    print(schedule)
+
+def generate_weekdays_schedule():
+    week_count = 0
+    calculated_schedule_sequence = calculate_schedule_sequence()
+    schedule_sequence = calculated_schedule_sequence.copy()
+    while week_count < AMOUNT_OF_WEEKS_IN_SCHEDULE:
+
+        if schedule_sequence == []:
+            schedule_sequence = calculated_schedule_sequence.copy()
+
+        _populate_week(schedule_sequence)
+        week_count += 1
 
 # For each week list, create a weekend list
 # Then make a for iteration to append all weekends to list of week
-
-
-def populate_week():
-    for person in PEOPLE:
-        for day in range(AMOUNT_OF_DAYS_IN_WEEK_ROTATION):
-            # Index 0 refers to position of weekday.
-            person_count_of_days[person] = person_count_of_days[person] + 1
-    print(person_count_of_days)
-    print(rotation)
-
 def populate_weekends(week_number):
     available_engineers = PEOPLE.copy()
     current_saturday = populate_saturday(week_number, available_engineers)
@@ -92,4 +100,4 @@ def consider_holidays():
     pass
 
 
-start(week_number)
+start()
