@@ -32,12 +32,9 @@ def start():
     AMOUNT_OF_DAYS_IN_WEEK_ROTATION and AMOUNT_OF_WEEKS_IN_SCHEDULE.
     """
     weekdays_populated_schedule = generate_weekdays_schedule()
-    schedule = populate_weekends(weekdays_populated_schedule)
+    schedule = generate_weekend_schedule(weekdays_populated_schedule)
     print('Finalised schedule:')
-    week_number = 1
-    for week_schedule in schedule:
-        print(week_number, week_schedule)
-        week_number += 1
+    display_schedule(schedule)
 
 
 def calculate_schedule_sequence(rotation_days):
@@ -89,7 +86,7 @@ def _populate_week_and_add_to_schedule(schedule, sequence_of_available_people):
 
 
 def generate_weekdays_schedule():
-    """Generate a schedule for all weekdays by taking the available people for the
+    """Generates a schedule for all weekdays by taking the available people for the
     rotation and inserting them in order into a sequence of 5-element lists, which
     refers to the amount of working days within a week.
 
@@ -111,6 +108,10 @@ def generate_weekdays_schedule():
 
 
 # def person_count_of_days():
+#     """This function mounts a dictionary to keep track of each person's rota day on
+#     the weekends to be used by populate_saturday() and populate_sunday() when comparing
+#     the amount of days a person has already been assigned to in a weekend.
+#     """
 #     person_count_of_days = {}
 #     for person in PEOPLE_IN_ROTATION:
 #         person_count_of_days[person] = 0
@@ -119,23 +120,28 @@ def generate_weekdays_schedule():
 # person_count_of_days = person_count_of_days()
 
 
-def populate_weekends(schedule):
+def generate_weekend_schedule(schedule):
+    """Generates a schedule for all weekends by taking the available people for the
+    rotation and inserting them in order into a sequence of 5-element lists, which
+    refers to the amount of working days within a week.
+
+    Returns:
+        - schedule: the original schedule with a weekend appended to each list.
+    """
     available_people = calculate_schedule_sequence(AMOUNT_OF_DAYS_IN_WEEKEND_ROTATION)
     amount_of_weekends = AMOUNT_OF_WEEKS_IN_SCHEDULE
     weekend_rota = []
     count = 1
     for weekend in range(amount_of_weekends):
+        # This will be replaced by the populate_saturday and populate_sunday methods.
         for i in range(2):
             person = available_people.pop(0)
             weekend_rota.append(person)
+
         schedule[weekend].insert(count, weekend_rota)
         weekend_rota = []
         count += 1
-    # current_saturday = populate_saturday(schedule, available_people)
-    # current_sunday = populate_sunday(week_number, available_people)
     return schedule
-
-    # Then append to the lists.
 
 
 # def _populate_saturday(schedule, available_people):
@@ -148,14 +154,11 @@ def populate_weekends(schedule):
 #     pass
 
 
-def display_schedule():
-    # people_schedule =
-    pass
-
-
-def consider_holidays():
-    # to be implemented
-    pass
+def display_schedule(schedule):
+    week_number = 1
+    for week_schedule in schedule:
+        print(week_number, week_schedule)
+        week_number += 1
 
 
 start()
