@@ -1,14 +1,22 @@
-"""Output expected:
+"""You have a list of people who'll be assigned to take care of a system.
+During the week, the system behaves differently than in the weekends, and
+therefore the schedule varies according to each day:
 
-[
-    (('', '', '', '', ''), ('', '')),
-    (('', '', '', '', ''), ('', '')),
-    (('', '', '', '', ''), ('', '')),
-    (('', '', '', '', ''), ('', '')),
-    (('', '', '', '', ''), ('', '')),
-]
+- There'll be at least 4 people in the rotation.
 
+- On weekdays, each person will be assigned an amount of sequenced days
+which takes continuity in every working day (mon-fri).
 
+- During the weekends, each day should be filled by a different person.
+One person should not take two consecutive days or two consecutive weekends
+in the rota.
+
+- The weekend schedule should be aware of the working week schedule, so
+each person assigned in the weekend will not be the same one as in the previous
+or next day of the rota, e.g. the person assigned to Saturday should not be the
+same one assigned on the latest friday neither in the upcoming Sunday.
+
+This program should not consider any holidays or unexpected events initially.
 """
 
 
