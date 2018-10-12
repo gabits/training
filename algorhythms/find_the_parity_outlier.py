@@ -20,3 +20,10 @@ def find_outlier(integers):
         copied_list.remove(o)
         if o % 2 != (copied_list[0] % 2) and (o % 2) != (copied_list[1] % 2):
             return o
+
+
+def test_if_find_outlier_returns_parity_outlier(self):
+    assert find_outlier([2, 3, 4, 6, 8]) == 3
+    assert find_outlier([1, 3, 5, 7, 9, 10]) == 10
+    assert find_outlier([8, 15, 21, 9]) == 8
+    assert find_outlier([11, 10, 12]) == 11
