@@ -1,8 +1,14 @@
-"""Write a program that takes a list A and prints YES if
-A contains two equal elements.
-"""
+#
+#   Check for equal elements in list
+#
 
-def does_unordered_list_have_equal_elements(A: list) -> str:
+# TODO: refactor tests for 1 and 2; add missing tests
+def does_unordered_list_have_equal_elements_1(A: list) -> str:
+    """
+    Exercise:
+        Write a program that takes a list A and prints YES if
+        A contains two equal elements.
+    """
     equal_elements = False
     n = len(A)
     while equal_elements:
@@ -14,7 +20,13 @@ def does_unordered_list_have_equal_elements(A: list) -> str:
     return 'YES' if equal_elements else 'NO'
 
 
-def does_ordered_list_have_equal_elements(A: list) -> str:
+def does_ordered_list_have_equal_elements_2(A: list) -> str:
+        """
+        Exercise:
+            Write a program that takes a list A and prints YES if
+            A contains two equal elements.
+        """
+
     equal_elements = False
     n = len(A)
     while equal_elements:
@@ -44,13 +56,15 @@ def test_no_equal_elements_ordered_list_outputs_no():
     A = [4, 7, 9, 15, 25]
     assert does_ordered_list_have_equal_elements(A) == 'NO'
 
-
+#
+#   Challenge: output most frequent number in list
+#
 def output_most_frequent_number(A: list) -> int:
     # TODO: UNFINISHED
     """
     Using only one nested loop, find the most frequent number on a list.
 
-    Notes:
+    Ideas:
     - Use a dictionary to store count for every frequency (downside: stores
     counts which you already know are useless)
     - Compare biggest current frequency in the loop with a list involving
@@ -81,7 +95,9 @@ def test_output_most_frequent_number_is_most_recent_when_repeated_numbers():
     A = [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7]
     assert output_most_frequent_number(A) == 4
 
-
+#
+#   Check for different elements in list
+#
 def is_there_a_different_number_in_the_list(A: list) -> str:
     is_there_a_different_number = False
     for i in range(0, n - 1):
@@ -112,14 +128,18 @@ def test_sorted_list_outputs_no_if_does_not_have_distinct_numbers():
     A = [1, 1, 1, 1, 1, 1, 1]
     assert does_sorted_list_have_distinct_numbers(A) == 'NO'
 
-
+#
+#   Run tests when module called
+#
 if __name__ == '__main__':
     test_two_equal_elements_unordered_list_outputs_yes()
     test_no_equal_elements_unordered_list_outputs_no()
     test_two_equal_elements_ordered_list_outputs_yes()
     test_no_equal_elements_ordered_list_outputs_no()
+
     test_output_most_frequent_number_when_repeated_numbers()
     test_output_most_frequent_number_is_most_recent_when_repeated_numbers()
+
     test_returns_true_when_different_element_on_list()
     test_returns_false_when_all_elements_equal()
     test_sorted_list_outputs_yes_if_has_distinct_numbers()
