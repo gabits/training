@@ -50,10 +50,10 @@ def calculate_schedule_sequence(rotation_days):
          fill the schedule.
     """
     rotation_sequence_of_people = []
-    DAYS_TO_BE_FILLED = AMOUNT_OF_WEEKS_IN_SCHEDULE * 5
+    days_to_be_filled = AMOUNT_OF_WEEKS_IN_SCHEDULE * 5
 
     days_filled = 0
-    while days_filled <= DAYS_TO_BE_FILLED:
+    while days_filled <= days_to_be_filled:
         for person in PEOPLE_IN_ROTATION:
             for day in range(rotation_days):
                 rotation_sequence_of_people.append(person)
@@ -95,13 +95,13 @@ def generate_weekdays_schedule():
     """
     schedule = []
 
-    calculated_schedule_sequence = calculate_schedule_sequence(AMOUNT_OF_DAYS_IN_WEEK_ROTATION)
+    schedule_sequence = calculate_schedule_sequence(AMOUNT_OF_DAYS_IN_WEEK_ROTATION)
 
     week_count = 0
     while week_count < AMOUNT_OF_WEEKS_IN_SCHEDULE:
 
         schedule, sequence_of_available_people = _populate_week_and_add_to_schedule(
-                schedule, calculated_schedule_sequence)
+                schedule, schedule_sequence)
         week_count += 1
 
     return schedule

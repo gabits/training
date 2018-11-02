@@ -15,6 +15,7 @@ Attention:
 
 """
 
+
 def increment_string(strng):
     slist = list(strng)
     for a in range(len(slist)):

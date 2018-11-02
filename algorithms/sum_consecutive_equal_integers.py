@@ -37,7 +37,7 @@ def sum_consecutive_integers(o_list):
     return new_list
 
 
-def test_if_sum_consecutives_returns_sum_of_consecutive_integers(self):
+def test_if_sum_consecutives_returns_sum_of_consecutive_integers():
     assert sum_consecutive_integers([1, 4, 4, 4, 0, 4, 3, 3, 1]) == [1, 12, 0, 4, 6, 1]
     assert sum_consecutive_integers([1, 1, 7, 7, 3]) == [2, 14, 3]
     assert sum_consecutive_integers([-5, -5, 7, 7, 12, 0]) == [-10, 14, 12, 0]
@@ -45,4 +45,4 @@ def test_if_sum_consecutives_returns_sum_of_consecutive_integers(self):
 
 
 if __name__ == '__main__':
-    test_if_sum_consecutives_returns_sum_of_consecutive_integers
+    test_if_sum_consecutives_returns_sum_of_consecutive_integers()
